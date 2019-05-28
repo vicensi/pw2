@@ -16,7 +16,7 @@ public class Cliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private String apelido_fantasia;
+    private String apelidoFantasia;
     private String cpf;
     private String cnpj;
     private String inscricao;
@@ -42,12 +42,12 @@ public class Cliente implements Serializable{
         this.nome = nome;
     }
 
-    public String getApelido_fantasia() {
-        return apelido_fantasia;
+    public String getApelidoFantasia() {
+        return apelidoFantasia;
     }
 
-    public void setApelido_fantasia(String apelido_fantasia) {
-        this.apelido_fantasia = apelido_fantasia;
+    public void setApelidoFantasia(String apelidoFantasia) {
+        this.apelidoFantasia = apelidoFantasia;
     }
 
     public String getCpf() {

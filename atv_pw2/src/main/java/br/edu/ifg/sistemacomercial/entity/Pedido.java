@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,17 +24,17 @@ public class Pedido implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Temporal(TemporalType.DATE)
-    private Date data_pedido;
+    private Date dataPedido;
     private String observacoes;
     @ManyToOne
     @JoinColumn(name = "observacoes_cliente")
-    private Cliente observacoes_cliente;
+    private Cliente observacoesCliente;
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario_id;
+    private Usuario usuarioId;
     private float desconto;
     
-    @OneToOne
+    @ManyToOne
     @JoinTable(name = "pedido_has_produto", 
             joinColumns = @JoinColumn(name="pedido_id"),
             inverseJoinColumns = @JoinColumn(name="produto_id"))
@@ -59,12 +58,12 @@ public class Pedido implements Serializable{
         this.id = id;
     }
 
-    public Date getData_pedido() {
-        return data_pedido;
+    public Date getDataPedido() {
+        return dataPedido;
     }
 
-    public void setData_pedido(Date data_pedido) {
-        this.data_pedido = data_pedido;
+    public void setDataPedido(Date dataPedido) {
+        this.dataPedido = dataPedido;
     }
 
     public String getObservacoes() {
@@ -75,20 +74,20 @@ public class Pedido implements Serializable{
         this.observacoes = observacoes;
     }
 
-    public Cliente getObservacoes_cliente() {
-        return observacoes_cliente;
+    public Cliente getObservacoesCliente() {
+        return observacoesCliente;
     }
 
-    public void setObservacoes_cliente(Cliente observacoes_cliente) {
-        this.observacoes_cliente = observacoes_cliente;
+    public void setObservacoesCliente(Cliente observacoesCliente) {
+        this.observacoesCliente = observacoesCliente;
     }
 
-    public Usuario getUsuario_id() {
-        return usuario_id;
+    public Usuario getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setUsuario_id(Usuario usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuarioId(Usuario usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public float getDesconto() {
